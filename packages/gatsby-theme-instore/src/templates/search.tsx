@@ -84,7 +84,7 @@ const SearchPageContainer: FC<SearchPageProps> = (props) => {
 }
 
 export const query = graphql`
-  query SearchPageQuery(
+  query SearchInstoreQuery(
     $query: String
     $map: String
     $fullText: String

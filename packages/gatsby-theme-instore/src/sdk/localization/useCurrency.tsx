@@ -8,7 +8,7 @@ export const useCurrency = () => {
   const {
     allChannel: { edges },
   } = useStaticQuery(graphql`
-    query DefaultCurrencyQuery {
+    query DefaultCurrencyInstoreQuery {
       allChannel(
         filter: { targetProduct: { eq: "vtex-storefront" } }
         limit: 1

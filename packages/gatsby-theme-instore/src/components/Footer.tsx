@@ -17,7 +17,7 @@ const MenuLink: FC<Item> = ({ slug, name }) => (
 
 const Footer: FC = () => {
   const { allDepartment } = useStaticQuery<FooterQueryQuery>(graphql`
-    query FooterQuery {
+    query FooterInstoreQuery {
       allDepartment(sort: { order: ASC, fields: name }) {
         nodes {
           name

@@ -84,7 +84,7 @@ const ProductPageContainer: FC<ProductPageProps> = (props) => {
 }
 
 export const query = graphql`
-  query ProductPageQuery($slug: String, $staticPath: Boolean!) {
+  query ProductInstoreQuery($slug: String, $staticPath: Boolean!) {
     vtex {
       product(slug: $slug) @include(if: $staticPath) {
         ...ProductDetailsTemplate_product
