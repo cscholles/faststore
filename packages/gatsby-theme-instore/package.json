@@ -11,8 +11,7 @@
   "keywords": [
     "gatsby",
     "gatsby-theme-plugin",
-    "vtex",
-    "instore"
+    "vtex"
   ],
   "license": "MIT",
   "peerDependencies": {

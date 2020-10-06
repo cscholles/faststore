@@ -14,7 +14,7 @@ export interface Props {
 const SEO: FC<Props> = ({ description, lang = 'en', meta = [], title }) => {
   const { site } = useStaticQuery<SiteMetadataQueryQuery>(
     graphql`
-      query SiteMetadataInstoreQuery {
+      query SiteMetadataQuery {
         site {
           siteMetadata {
             title
