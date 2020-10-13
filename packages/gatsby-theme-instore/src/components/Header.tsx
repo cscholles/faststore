@@ -7,6 +7,7 @@ import Menu from './Menu'
 import Minicart from './Minicart'
 import NotificationBar from './NotificationBar'
 import OverMenu from './OverMenu'
+import InStoreTopbar from './InStoreTopbar'
 import SearchBar from './SearchBar/index'
 
 const StoreHeader = () => {
@@ -30,6 +31,7 @@ const StoreHeader = () => {
           <Minicart />
         </Flex>
       </Header>
+      <InStoreTopbar />
     </Fragment>
   )
 }

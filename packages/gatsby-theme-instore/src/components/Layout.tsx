@@ -12,9 +12,7 @@ const Footer = lazy(loader)
 
 const Layout: FC = ({ children }) => (
   <Fragment>
-    <style>
-      {Tachyons}
-    </style>
+    <style>{Tachyons}</style>
     <Header />
     {children}
     <SuspenseViewport fallback={null} preloader={loader}>
