@@ -10,3 +10,67 @@ declare type Vtex_SelectedFacetInput = {
 }
 
 declare type Vtex_SimulationBehavior = 'default' | 'skip'
+
+interface Store {
+  id: string
+  country: string
+  name: string
+  tradePolicy: string
+  address: string
+  number: string
+  neighborhood: string
+  city: string
+  state: string
+  postalCode: string
+  mobileNumber: string | null
+  pickupPoint: string
+  franchiseAccount: string
+}
+
+interface Vendor {
+  id: string
+  name: string
+  username: string
+  storeId: string
+  code: string | null
+  store: Store
+  franchiseAccount?: string | null
+  pickupPointId?: string | null
+}
+
+interface InStoreConfig {
+  orderPlacedHook: Record<string, any>
+  cancelOrderConfig: Record<string, any>
+  showStock: boolean
+  showAddressReference: boolean
+  defaultSellerId: string
+  featureToogle: Record<string, any>
+  customerProfile: Record<string, any>
+  accountName: string
+  splunkConfig: Record<string, any>
+  MasterDataConfig: Record<string, any>
+  OMSFilters: Record<string, any>
+  payments: Record<string, any>
+  accounts: Record<string, InStoreConfig>
+  vendors: Record<string, InStoreConfig>
+  deviceNames: Record<string, any>
+  printingConfig: Record<string, any>
+  deviceConfig: Record<string, any>
+  enableIdentificationTypes: Record<string, any>
+  transferEnabled: boolean
+  sellWithoutStockInHands: boolean
+  recommendationsEnabled: boolean
+  allowAnonymousUser: boolean
+  portalConfig: Record<string, any>
+  trackingConfig: Record<string, any>
+  search: Record<string, any>
+  productPageSkip: boolean
+  filters: string[]
+  externals: []
+  topbarTitle: string
+  noteAsVendorCode: Record<string, any>
+  forceSimulationByCheckout: boolean
+  isECommerce(): boolean
+  toECommerce(payment: Record<string, any>): Record<string, any>
+  getECommerceExecute(payment: Record<string, any>): Record<string, any>
+}
