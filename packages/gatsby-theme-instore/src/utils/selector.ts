@@ -1,4 +1,4 @@
-import { createSelector, Selector } from 'reselect'
+import { createSelector, OutputSelector, Selector } from 'reselect'
 
 const defaultResultFunc: Selector<any, any> = (items: any) => items
 
