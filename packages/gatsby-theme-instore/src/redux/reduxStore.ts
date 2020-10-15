@@ -1,18 +1,18 @@
 let reduxStore: any = null
 
-export function saveReduxStore(store: InStoreReduxStore) {
+export function saveReduxStore(store: any) {
   reduxStore = store
 
   return reduxStore
 }
 
-export function getReduxStore(): InStoreReduxStore {
+export function getReduxStore() {
   return reduxStore
 }
 
 declare global {
   interface Window {
-    getReduxStore: () => InStoreReduxStore
+    getReduxStore: () => any
   }
 }
 

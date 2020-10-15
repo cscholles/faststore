@@ -3,8 +3,8 @@ import { getReduxStore } from '../redux/reduxStore'
 
 import { createSelectorPathBuilder } from './selector'
 
-export const vendorSelector = createSelectorPathBuilder([(state: any) =>
-  get(state, ['vendor', 'vendor'], null)
+export const vendorSelector = createSelectorPathBuilder([
+  (state: any) => get(state, ['vendor', 'vendor'], null),
 ])
 
 export function getVendor(): any {
