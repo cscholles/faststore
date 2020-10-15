@@ -9,3 +9,21 @@ export function startClientProfileEvent(): void {
     marker: 'start',
   })
 }
+
+export function logClickEvent(
+  eventName: string,
+  context: string,
+  extraData: object = {}
+): void {
+  // FIXME: use splung events
+  // splunkEvents.logEvent('Default', 'Info', 'click-event', {
+  //   'event-name': eventName,
+  //   context,
+  //   ...extraData,
+  // })
+  console.log('Default', 'Info', 'click-event', {
+    'event-name': eventName,
+    context,
+    ...extraData,
+  })
+}
