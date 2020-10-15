@@ -70,6 +70,7 @@ interface InStoreConfig {
   topbarTitle: string
   noteAsVendorCode: Record<string, any>
   forceSimulationByCheckout: boolean
+  identificationTypesOrder: string[]
   isECommerce(): boolean
   toECommerce(payment: Record<string, any>): Record<string, any>
   getECommerceExecute(payment: Record<string, any>): Record<string, any>
