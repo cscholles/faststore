@@ -1,6 +1,6 @@
-import transmitter from 'transmitter'
 import safeStringify from 'fast-safe-stringify'
 
+import transmitter from './transmitter'
 import { KeyboardBarcode } from './keyboard'
 import { getNativeAppInfo } from './device'
 import { genericImportantError } from './event'
