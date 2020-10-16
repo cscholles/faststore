@@ -12,6 +12,12 @@ import upperFirst from 'lodash/upperFirst'
 
 let globalIntl: IntlShape | null = null
 
+export const currenciesCode: Record<string, string> = {
+  pt: 'BRL',
+  en: 'USD',
+  es: 'ARS',
+}
+
 export const IntlSaveObject = (intl: IntlShape) => {
   globalIntl = intl
   return null
