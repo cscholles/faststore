@@ -11,6 +11,8 @@ declare type Vtex_SelectedFacetInput = {
 
 declare type Vtex_SimulationBehavior = 'default' | 'skip'
 
+type Optional<T> = T | null | undefined
+
 interface Store {
   id: string
   country: string
@@ -74,4 +76,8 @@ interface InStoreConfig {
   isECommerce(): boolean
   toECommerce(payment: Record<string, any>): Record<string, any>
   getECommerceExecute(payment: Record<string, any>): Record<string, any>
+}
+
+interface InStoreReduxStore {
+  getState(): any
 }
