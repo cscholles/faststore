@@ -8,9 +8,6 @@ import cloneDeep from 'lodash/cloneDeep'
 import { getAccountName } from './url'
 import { MqttClientWrapper, MqttApp } from './mqtt'
 import { setInLocalStorage, getFromLocalStorage } from './localStorage'
-/* Apps - import and register them here */
-import Falco from './falco'
-import CodeReader from './codeReader'
 
 const MIN_CONNECTION_RETRY_TIME = 300 // 0.3 seconds
 const MAX_CONNECTION_RETRY_TIME = 300000 // 5 minutes
@@ -28,7 +25,7 @@ function getReconnectionTime(): number {
 }
 
 function registerApps(appManager: IotAppManager): IotAppManager {
-  return appManager.registerApp(new CodeReader()).registerApp(new Falco())
+  return appManager.registerApp(new Falco())
 }
 
 export function getInstallationId(): string {
@@ -154,6 +151,37 @@ export class IotApp {
   // get client(): mqtt.Client {
   //   return this.clientWrapper.client
   // }
+}
+
+class Falco extends IotApp {
+  get config(): IotConfig {
+    return { scope: 'vtex', appName: 'falco', appMajorVersion: '1' }
+  }
+  get name(): string {
+    return 'Falco'
+  }
+  get devices(): IotDeviceData {
+    return {}
+  } // falco has no devices
+
+  onMqttConnect(
+    clientWrapper: MqttClientWrapper,
+    eventHandler: (ev: string, ...args: any[]) => any,
+    account: string,
+    storeId: string
+  ): void {
+    const { scope, appName, appMajorVersion } = this.config
+    const BASE_TOPIC = `${scope}/${appName}/${appMajorVersion}/${account}`
+    const CHECKIN_TOPIC = `${BASE_TOPIC}/checkin`
+
+    clientWrapper.subscribe(CHECKIN_TOPIC)
+
+    clientWrapper.onMessage(CHECKIN_TOPIC, (topic: string, message: string) => {
+      if (topic === CHECKIN_TOPIC) {
+        eventHandler('Falco.checkIn', message)
+      }
+    })
+  }
 }
 
 /**
@@ -368,6 +396,34 @@ class IotAppManager extends EventEmitter {
     //   }
     // })
     return this
+  }
+}
+
+class CodeReader extends PairableIotApp {
+  get config(): IotConfig {
+    return { appName: 'codereader', appMajorVersion: '1' }
+  }
+  get name(): string {
+    return 'Barcode Reader'
+  }
+
+  onChangeInfo(
+    deviceId: string,
+    { mqttApp }: IotDeviceDataType,
+    previousDeviceData: any
+  ): void {
+    if (!previousDeviceData) {
+      // Found the app in a new device, so register message listener
+      mqttApp.onMessage('data/barcode', (message: string) => {
+        this.debug(deviceId, `received barcode ${message}`)
+        this.emit('CodeReader.read', message)
+      })
+    }
+    if (this.isConnected(deviceId) && this.isPaired(deviceId)) {
+      mqttApp.subscribe('data/barcode')
+    } else {
+      mqttApp.unsubscribe('data/barcode')
+    }
   }
 }
 

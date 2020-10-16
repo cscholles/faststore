@@ -8,8 +8,8 @@ export function getOrderForm() {
   if (!getReduxStore()) {
     return null
   }
-  return getReduxStore().getState().order
-    ? getReduxStore().getState().order.orderForm
+  return getReduxStore()?.getState().order
+    ? getReduxStore()?.getState().order.orderForm
     : null
 }
 

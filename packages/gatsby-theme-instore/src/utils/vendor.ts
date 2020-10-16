@@ -12,18 +12,14 @@ export const storeSelector = createSelectorPathBuilder([
   (state: any) => get(state, ['vendor', 'store'], null),
 ])
 
-export function getVendor(): Vendor | null {
+export function getVendor(): Vendor {
   const store = getReduxStore()
-  const data = vendorSelector(store.getState())
-  if (data === null) {
-    return null
-  }
+  const data = vendorSelector(store?.getState())
   return <Vendor>data
 }
 
 export function getVendorStore(): Store | null {
-  const store = getReduxStore()
-  const data = storeSelector(store.getState())
+  const data = storeSelector(getReduxStore()?.getState())
   if (data === null) {
     return null
   }

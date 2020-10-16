@@ -8,7 +8,7 @@ type AppInfoType = {
 }
 
 export function getResourceInfo(resourceName: string): any {
-  return get(getReduxStore().getState().device, ['resources', resourceName])
+  return get(getReduxStore()?.getState().device, ['resources', resourceName])
 }
 
 export function resourceIsAvailable(resourceName: string): boolean {
@@ -29,7 +29,7 @@ export function getNativeAppInfo(): AppInfoType {
   let nativeAppInfo
 
   try {
-    nativeAppInfo = getReduxStore().getState().device.appInfo
+    nativeAppInfo = getReduxStore()?.getState().device.appInfo
   } catch (_) {
     nativeAppInfo = {}
   }
