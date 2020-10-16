@@ -37,8 +37,8 @@ export const INSTORE_CONFIG_DEFAULT = {
   },
 }
 
-function getAccountConfig(vendor: Vendor | null) {
-  vendor = vendor || getVendor()
+function getAccountConfig(v: Vendor | null) {
+  const vendor = v || getVendor()
   const store = vendor?.store || { franchiseAccount: '' }
   const seller = store?.franchiseAccount
 

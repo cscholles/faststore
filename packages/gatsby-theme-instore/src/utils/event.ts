@@ -27,3 +27,13 @@ export function logClickEvent(
     ...extraData,
   })
 }
+
+export function genericImportantError(
+  eventWorkflowType: string,
+  eventData: object
+): void {
+  // FIXME: use splung events
+  // logRocket.logNonIntrusiveError(eventWorkflowType, eventData)
+  // splunkEvents.logEvent('Important', 'Error', eventWorkflowType, eventData)
+  console.log('Important', 'Error', eventWorkflowType, eventData)
+}
