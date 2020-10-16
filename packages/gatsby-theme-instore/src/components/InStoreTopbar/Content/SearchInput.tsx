@@ -1,8 +1,14 @@
-import React, { FC } from 'react'
+import React from 'react'
 
 import IconSearch from './SearchIcon'
 
-const InStoreTopbar: FC = () => (
+interface SearchInputProps {
+  placeholder?: string
+}
+
+type Props = SearchInputProps
+
+const SearchInput: React.FC<Props> = ({ placeholder = 'Buscar por código ou nome' }: Props) => (
   <form
     className="flex flex-auto items-center ba-l b--black-20 bg-base ph4-l"
     // onSubmit={this.handleFormSubmit}
@@ -25,7 +31,7 @@ const InStoreTopbar: FC = () => (
         // }}
         type="search"
         className="bn bg-transparent w-100 pv3 pv2-l f4 f5-l fw3 lh-copy-ns"
-        placeholder="Buscar por código ou nome"
+        placeholder={placeholder}
         // value={term || ''}
         // disabled={isNextLoading}
         // onChange={this.handleChange}
@@ -39,4 +45,4 @@ const InStoreTopbar: FC = () => (
   </form>
 )
 
-export default InStoreTopbar
+export default SearchInput

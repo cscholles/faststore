@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 
-import Title from './Content/Title'
-import Search from './Content/Search'
+import TitleContainer from './Content/TitleContainer'
+import SearchInputContainer from './Content/SearchInputContainer'
 
 const InStoreTopbar: FC = () => (
   <div>
@@ -11,10 +11,10 @@ const InStoreTopbar: FC = () => (
           <div className="flex flex-auto items-center">
             <div className="relative flex flex-auto items-center h-100 w-100">
               <div className="f4 flex flex-grow-1 flex-shrink-1 noselectpl5">
-                <Title />
+                <TitleContainer />
               </div>
               <div className="w-40-l flex flex-auto flex-none-l mr5 title-logo">
-                <Search />
+                <SearchInputContainer />
               </div>
             </div>
           </div>
