@@ -74,9 +74,46 @@ interface InStoreConfig {
   noteAsVendorCode: Record<string, any>
   forceSimulationByCheckout: boolean
   identificationTypesOrder: string[]
+  falcoTimeToExpire: number
   isECommerce(): boolean
   toECommerce(payment: Record<string, any>): Record<string, any>
   getECommerceExecute(payment: Record<string, any>): Record<string, any>
+}
+
+interface InstoreProfileData {
+  email: string
+  document: string
+}
+
+interface InstoreOrderForm {
+  orderFormId: string
+  clientProfileData: InstoreProfileData
+}
+
+interface InstoreOrder {
+  identificationType: string
+  orderForm: InstoreOrderForm
+}
+
+// export type ClientProfileType = {
+//   email: string
+//   document: string
+// }
+
+// export type OrderFormType = {
+//   clientProfileData: ClientProfileType
+//   orderFormId: string
+// }
+
+// export type OrderType = {
+//   identificationType: string
+//   orderForm: OrderFormType
+// }
+
+type ActionType = { type: string; payload: Record<string, unknown> }
+
+interface InstoreState {
+  order: InstoreOrder
 }
 
 interface InStoreReduxStore {
