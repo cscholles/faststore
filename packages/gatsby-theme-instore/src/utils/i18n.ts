@@ -29,10 +29,10 @@ export function getIntlMessage(
   id: string,
   extraContext?: any, // TODO: can we be more specific on this type?
   intl?: IntlShape
-) {
+): string {
   const intlObject = intl || globalIntl
   if (!intlObject || !id) {
-    return null
+    return '<no error message provided>'
   }
 
   return intlObject.formatMessage({ id }, extraContext)

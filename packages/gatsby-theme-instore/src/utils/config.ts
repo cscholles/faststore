@@ -28,6 +28,7 @@ export const notImplementedYet = () => {
 }
 
 export const INSTORE_CONFIG_DEFAULT = {
+  transferEnabled: true,
   payments: {
     filters: DEFAULT_PAYMENTS_IDS,
     externals: [],
@@ -37,7 +38,7 @@ export const INSTORE_CONFIG_DEFAULT = {
   },
 }
 
-function getAccountConfig(v: Vendor | null) {
+function getAccountConfig(v?: Vendor) {
   const vendor = v || getVendor()
   const store = vendor?.store || { franchiseAccount: '' }
   const seller = store?.franchiseAccount
@@ -55,7 +56,7 @@ function getAccountConfig(v: Vendor | null) {
   return accountsConfig[seller] || {}
 }
 
-function getVendorConfig(vendor: Vendor | null) {
+function getVendorConfig(vendor?: Vendor) {
   vendor = vendor || getVendor()
   const vendorEmail = vendor && vendor.username
 
@@ -130,7 +131,7 @@ function getCustomerProfile(adminCustomSettings: Record<string, any>) {
     : { isCorporate: false }
 }
 
-export function getInstoreConfig(vendor: Vendor | null = null): InStoreConfig {
+export function getInstoreConfig(vendor?: Vendor): InStoreConfig {
   const instoreConfig = mergeWith(
     {},
     INSTORE_CONFIG_DEFAULT,

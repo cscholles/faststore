@@ -6,6 +6,7 @@ type IdentificationTypesType = {
   enabledByDefault: boolean
   id: string
   label: string
+  Component: React.Component | React.FC // TODO: can be more specific? like: React.Component
 }
 
 export function getAvailableIdentificationTypes(
@@ -40,14 +41,8 @@ export function getAvailableIdentificationTypes(
     availableIdentificationTypes.sort((type1, type2) => {
       const idType1 = type1?.id
       const idType2 = type2?.id
-
-      let idTypeIndex1 = identificationTypesOrder.findIndex(
-        (idTypeOrder: string) => idTypeOrder === idType1
-      )
-
-      let idTypeIndex2 = identificationTypesOrder.findIndex(
-        (idTypeOrder: string) => idTypeOrder === idType2
-      )
+      let idTypeIndex1 = identificationTypesOrder.indexOf(idType1)
+      let idTypeIndex2 = identificationTypesOrder.indexOf(idType2)
 
       /* If is not on identificationTypesOrder, make it last (draws in this case will maintain original order) */
       if (idTypeIndex1 === -1) {

@@ -18,10 +18,16 @@ export function sendEvent(eventName: string, data: any): CustomEvent {
   return customEvent
 }
 
-export function listenEvent(eventName: string, callback: () => any): void {
+export function listenEvent(
+  eventName: string,
+  callback: (evt: Event) => void
+): void {
   document.addEventListener(eventName, callback, false)
 }
 
-export function unlistenEvent(eventName: string, callback: () => any): void {
+export function unlistenEvent(
+  eventName: string,
+  callback: (evt: Event) => void
+): void {
   document.removeEventListener(eventName, callback, false)
 }

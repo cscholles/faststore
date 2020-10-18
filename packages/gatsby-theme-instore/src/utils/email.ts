@@ -6,8 +6,8 @@ export function isInStoreAnonymousEmail(email: string): boolean {
   return email ? email.indexOf(ANONYMOUS_EMAIL_SUFFIX) >= 0 : false
 }
 
-export function clearIfInStoreAnonymousEmail(email: string): string | null {
-  return email && isInStoreAnonymousEmail(email) ? null : email
+export function clearIfInStoreAnonymousEmail(email: string): string {
+  return email && isInStoreAnonymousEmail(email) ? '' : email
 }
 
 export function getNewAnonymousEmail(): string {

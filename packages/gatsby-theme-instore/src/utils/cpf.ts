@@ -1,16 +1,12 @@
 import { isNaN, isEmpty } from 'lodash'
 
-import mask from './mask'
+import { mask } from './mask'
 
 export const CPF_MASK = '999.999.999-99'
 
 const ONE_NUMBER_CPF = /^1{11}|2{11}|3{11}|4{11}|5{11}|6{11}|7{11}|8{11}|9{11}$/
 
-export function isCPF(value: string): boolean {
-  return !isEmpty(value) && !isNaN(value.substr(0, 3))
-}
-
-export function validateCPF(cpf: string): boolean {
+export function isValidCPF(cpf: string): boolean {
   if (!cpf) {
     return false
   }
@@ -19,6 +15,10 @@ export function validateCPF(cpf: string): boolean {
   let remainder
 
   cpf = clearMask(cpf)
+
+  if (cpf.length !== 11) {
+    return false
+  }
 
   if (ONE_NUMBER_CPF.test(cpf)) {
     return false

@@ -35,11 +35,9 @@ const getCurrentBreakpoint = (windowWidth: number | null = null) => {
   return result
 }
 
-const isDesktopBreakpoint = (
-  breakpoint: string,
-  windowWidth: number | null = null
-) => {
+const isDesktopBreakpoint = (breakpoint?: string, windowWidth?: number) => {
   const currentBreakpoint = breakpoint || getCurrentBreakpoint(windowWidth)
+
   return currentBreakpoint === 'l' || currentBreakpoint === 'xl'
 }
 
