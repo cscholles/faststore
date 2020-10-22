@@ -6,6 +6,9 @@ import BelowTheFoldPreview from '../components/HomePage/BelowTheFoldPreview'
 import Layout from '../components/Layout'
 import SuspenseViewport from '../components/Suspense/Viewport'
 import SuspenseSSR from '../components/Suspense/SSR'
+import InStoreTopbar from '../components/InStoreTopbar'
+import { useOrderForm } from '../sdk/orderForm/useOrderForm'
+import { useIntl } from '@vtex/gatsby-plugin-i18n'
 
 const belowTheFoldPreloader = () =>
   import('../components/HomePage/BelowTheFold')
@@ -20,18 +23,17 @@ const Home: FC<Props> = (props) => {
     ;(window as any).vtexrca('sendevent', 'homeView', {})
   }, [])
 
+  const { value } = useOrderForm()
+  const { formatMessage } = useIntl()
+
+  console.log(`--- `, { value })
+  console.log(`--- `, {
+    message: formatMessage({ id: 'minicart.drawer.close' }),
+  })
+
   return (
     <Layout>
-      <AboveTheFold {...props} />
-      <SuspenseSSR fallback={null}>
-        <SEO />
-      </SuspenseSSR>
-      <SuspenseViewport
-        fallback={<BelowTheFoldPreview />}
-        preloader={belowTheFoldPreloader}
-      >
-        <BelowTheFold />
-      </SuspenseViewport>
+      <InStoreTopbar />
     </Layout>
   )
 }

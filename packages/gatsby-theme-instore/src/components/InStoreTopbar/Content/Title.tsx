@@ -6,8 +6,6 @@ interface TitleProps {
 
 type Props = TitleProps
 
-const Title: FC<Props> = ({ title }: Props) => (
-  <span>{ title }</span>
-)
+const Title: FC<Props> = ({ title }) => <span>{title}</span>
 
 export default Title
