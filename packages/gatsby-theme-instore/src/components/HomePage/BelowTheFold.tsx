@@ -1,10 +1,16 @@
+import React, { FC } from 'react'
 import { Center, Text } from '@vtex/store-ui'
 
-import React, { FC } from 'react'
+const nativeAppInfo = {
+  device: { loading: true, error: false },
+  credentials: { loading: false, success: false, error: undefined },
+  native: {},
+  platform: 'web',
+}
 
 const BelowTheFold: FC = () => (
   <Center height="150px">
-    <Text sx={{ width: '50%' }} className='className'>
+    <Text sx={{ width: '50%' }} className="className">
       This is the below the fold part of your home page. All data in this part
       should be fetched lazily. Make sure this part is not on the above the fold
       part, mainly in mobile, since it can damage the greatily the performance

@@ -12,6 +12,7 @@ declare type Vtex_SelectedFacetInput = {
 declare type Vtex_SimulationBehavior = 'default' | 'skip'
 
 type Optional<T> = T | null | undefined
+type AnyObject = Record<string, any>
 
 interface Store {
   id: string

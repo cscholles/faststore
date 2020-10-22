@@ -37,3 +37,22 @@ export function genericImportantError(
   // splunkEvents.logEvent('Important', 'Error', eventWorkflowType, eventData)
   console.log('Important', 'Error', eventWorkflowType, eventData)
 }
+
+export function genericCriticalError(
+  eventWorkflowType: string,
+  eventData: AnyObject
+) {
+  // FIXME: use splung events
+  // logRocket.logNonIntrusiveError(eventWorkflowType, eventData)
+  // splunkEvents.logEvent('Critical', 'Error', eventWorkflowType, eventData)
+  console.log('Critical', 'Error', eventWorkflowType, eventData)
+}
+
+export function genericImportantEvent(
+  eventWorkflowType: string,
+  eventData: AnyObject
+) {
+  // FIXME: use splung events
+  // splunkEvents.logEvent('Important', 'Info', eventWorkflowType, eventData)
+  console.log('Important', 'Info', eventWorkflowType, eventData)
+}
