@@ -7,8 +7,8 @@ import Layout from '../components/Layout'
 import SuspenseViewport from '../components/Suspense/Viewport'
 import SuspenseSSR from '../components/Suspense/SSR'
 import InStoreTopbar from '../components/InStoreTopbar'
-import { useOrderForm } from '../sdk/orderForm/useOrderForm'
-import { useIntl } from '@vtex/gatsby-plugin-i18n'
+import { Identification } from '../components/Identification'
+import App from '../components/App'
 
 const belowTheFoldPreloader = () =>
   import('../components/HomePage/BelowTheFold')
@@ -18,22 +18,35 @@ const SEO = lazy(() => import('../components/HomePage/SEO'))
 
 type Props = PageProps<unknown>
 
+const initialState = {
+  order: {
+    identificationType: 'Email',
+    orderForm: {
+      orderFormId: '',
+      clientProfileData: {
+        email: '',
+        document: '',
+      },
+    },
+  },
+}
+
 const Home: FC<Props> = (props) => {
   useEffect(() => {
     ;(window as any).vtexrca('sendevent', 'homeView', {})
   }, [])
 
-  const { value } = useOrderForm()
-  const { formatMessage } = useIntl()
-
-  console.log(`--- `, { value })
-  console.log(`--- `, {
-    message: formatMessage({ id: 'minicart.drawer.close' }),
-  })
-
   return (
     <Layout>
-      <InStoreTopbar />
+      <App>
+        <InStoreTopbar />
+        <Identification
+          order={initialState.order}
+          clearCustomer={() => {}}
+          clearSearch={() => {}}
+          onChangeIdentificationType={() => {}}
+        />
+      </App>
     </Layout>
   )
 }
