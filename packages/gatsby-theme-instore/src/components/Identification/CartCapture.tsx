@@ -1,11 +1,11 @@
 import React from 'react'
 
 import uniqBy from 'lodash/uniqBy'
-
-import Switcher from 'components/Commons/Elements/Switcher'
 import Button from '@vtex/styleguide/lib/Button'
-import Selector from 'components/Commons/Elements/Selector'
-import SimpleModal from 'components/Commons/Elements/SimpleModal'
+
+import Switcher from '../Switcher'
+import Selector from '../Selector'
+import SimpleModal from '../SimpleModal'
 import QRCodeIcon from 'assets/images/qr-code-24-dark.svg'
 import * as MasterdataFetcher from 'fetchers/MasterdataFetcher'
 import * as WebViewBridge from 'utils/WebViewBridge'

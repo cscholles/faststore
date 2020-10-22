@@ -1,12 +1,9 @@
 import React from 'react'
-import { noop } from 'lodash'
 import classNames from 'classnames'
-import { getInstoreConfig } from '@vtex/gatsby-theme-instore/utils/config'
+import { getInstoreConfig } from '../..//utils/config'
 import Swiper from 'react-id-swiper'
 
-import Loader from '../Loader'
-import Footer from '../Footer'
-// import * as CustomEvent from '@vtex/gatsby-theme-instore/utils/customEvent'
+// import * as CustomEvent from '../..//utils/customEvent'
 
 import CustomerIdentification from './CustomerIdentification'
 // import CartCapture from './CartCapture'
@@ -89,7 +86,7 @@ export default class Identification extends React.Component<Props, State> {
     // }
 
     return (
-      <div className="flex flex-auto flex-column flex-row-l relative vh-100">
+      <div className="flex flex-column flex-row-l relative">
         <div
           className={classNames(
             'flex animate-height bg-light-silver overflow-auto flex-auto',
@@ -131,18 +128,6 @@ export default class Identification extends React.Component<Props, State> {
             )}
           </Swiper>
         </div>
-
-        {/* TODO: use React Portals for the Loader */}
-        <Loader loading={loading} />
-
-        {clientProfileData &&
-          (clientProfileData.email != null ||
-            clientProfileData.document != null) && (
-            <Footer
-              showFullSummary={this.state.showFullSummary}
-              onHandleToggleSummary={this.handleToggleSummary}
-            />
-          )}
       </div>
     )
   }

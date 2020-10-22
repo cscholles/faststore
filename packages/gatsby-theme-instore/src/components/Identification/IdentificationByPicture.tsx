@@ -5,8 +5,8 @@ import concat from 'lodash/concat'
 import uniqBy from 'lodash/uniqBy'
 import orderBy from 'lodash/orderBy'
 import filter from 'lodash/filter'
-import * as CustomEvent from '@vtex/gatsby-theme-instore/utils/customEvent'
-import { getInstoreConfig } from '@vtex/gatsby-theme-instore/utils/config'
+import * as CustomEvent from '../../utils/customEvent'
+import { getInstoreConfig } from '../../utils/config'
 
 import IdentifiedPerson from './IdentifiedPerson'
 

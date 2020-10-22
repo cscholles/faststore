@@ -5,6 +5,6 @@ interface AppProps {
   rules: string[]
 }
 
-export const App: FC<AppProps> = ({ children, rules, components }) => {
+export const App: FC<AppProps> = ({ rules, components }) => {
   return <Fragment>{rules.map((rule) => components[rule])}</Fragment>
 }

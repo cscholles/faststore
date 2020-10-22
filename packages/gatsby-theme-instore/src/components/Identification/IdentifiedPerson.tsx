@@ -1,5 +1,5 @@
 import React from 'react'
-import { logClickEvent } from '@vtex/gatsby-theme-instore/utils/event'
+import { logClickEvent } from '../../utils/event'
 
 import { IdentificationType } from './IdentificationByPicture'
 import placeholder from '../../images/sku-placeholder.svg'

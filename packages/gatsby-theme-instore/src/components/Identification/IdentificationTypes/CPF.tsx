@@ -1,9 +1,5 @@
 import React from 'react'
-import {
-  isValidCPF,
-  maskCPF,
-  clearMask,
-} from '@vtex/gatsby-theme-instore/utils/cpf'
+import { isValidCPF, maskCPF, clearMask } from '../../../utils/cpf'
 
 import IdentificationInput from '../IdentificationInput'
 

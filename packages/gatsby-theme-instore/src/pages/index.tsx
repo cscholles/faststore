@@ -38,15 +38,7 @@ const Home: FC<Props> = (props) => {
 
   return (
     <Layout>
-      <App>
-        <InStoreTopbar />
-        <Identification
-          order={initialState.order}
-          clearCustomer={() => {}}
-          clearSearch={() => {}}
-          onChangeIdentificationType={() => {}}
-        />
-      </App>
+      <App />
     </Layout>
   )
 }

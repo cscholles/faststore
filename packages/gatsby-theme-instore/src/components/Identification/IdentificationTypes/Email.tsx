@@ -2,7 +2,7 @@ import React from 'react'
 import {
   clearIfInStoreAnonymousEmail,
   validateEmail,
-} from '@vtex/gatsby-theme-instore/utils/email'
+} from '../../../utils/email'
 
 import IdentificationInput from '../IdentificationInput'
 

@@ -3,8 +3,8 @@ import noop from 'lodash/noop'
 import stubTrue from 'lodash/stubTrue'
 import identity from 'lodash/identity'
 import Button from '@vtex/styleguide/lib/Button'
-import { handleInputMask } from '@vtex/gatsby-theme-instore/utils/input'
-import { startClientProfileEvent } from '@vtex/gatsby-theme-instore/utils/event'
+import { handleInputMask } from '../../utils/input'
+import { startClientProfileEvent } from '../../utils/event'
 
 interface Props {
   inputType: string

@@ -13,7 +13,7 @@ const Footer = lazy(loader)
 const Layout: FC = ({ children }) => (
   <Fragment>
     <style>{Tachyons}</style>
-    {children}
+    <div className="flex-column vh-100">{children}</div>
   </Fragment>
 )
 

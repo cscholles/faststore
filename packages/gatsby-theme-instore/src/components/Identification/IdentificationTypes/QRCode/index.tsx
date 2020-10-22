@@ -1,7 +1,7 @@
 import React from 'react'
 import { noop } from 'lodash'
-import * as EmailUtils from '@vtex/gatsby-theme-instore/utils/email'
-import QRCodeUtils from '@vtex/gatsby-theme-instore/utils/qrCode'
+import * as EmailUtils from '../../../../utils/email'
+import QRCodeUtils from '../../../../utils/qrCode'
 
 import QRCodeButton from './QRCodeButton'
 // import * as MasterdataFetcher from 'fetchers/MasterdataFetcher'

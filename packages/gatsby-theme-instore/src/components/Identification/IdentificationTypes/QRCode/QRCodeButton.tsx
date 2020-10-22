@@ -1,11 +1,11 @@
 import React from 'react'
 import { useIntl } from '@vtex/gatsby-plugin-i18n'
-import { logClickEvent } from '@vtex/gatsby-theme-instore/utils/event'
-import * as WebViewBridge from '@vtex/gatsby-theme-instore/utils/webView'
-import BarcodeReader from '@vtex/gatsby-theme-instore/utils/barcode'
-import { KeyboardBarcode } from '@vtex/gatsby-theme-instore/utils/keyboard'
-import Button from '../../../Button'
 
+import { logClickEvent } from '../../../../utils/event'
+import * as WebViewBridge from '../../../../utils/webView'
+import BarcodeReader from '../../../../utils/barcode'
+import { KeyboardBarcode } from '../../../../utils/keyboard'
+import Button from '../../../Button'
 import QRCodeIcon from '../../../../images/qr-code-24.svg'
 
 interface Props {

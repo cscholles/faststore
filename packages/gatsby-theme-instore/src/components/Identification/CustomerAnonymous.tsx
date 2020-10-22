@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import { getInstoreConfig } from '@vtex/gatsby-theme-instore/utils/config'
-import * as EmailUtils from '@vtex/gatsby-theme-instore/utils/email'
-import { logClickEvent } from '@vtex/gatsby-theme-instore/utils/event'
-import * as CustomEvent from '@vtex/gatsby-theme-instore/utils/customEvent'
 import Button from '@vtex/styleguide/lib/Button'
+
+import { getInstoreConfig } from '../../utils/config'
+import * as EmailUtils from '../../utils/email'
+import { logClickEvent } from '../../utils/event'
+import * as CustomEvent from '../../utils/customEvent'
 
 interface Props {
   onSetCustomerIdentification(email: string): void
