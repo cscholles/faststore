@@ -69,25 +69,6 @@ export const createPages = async (
         },
       })
     }
-
-    // Search Pages
-    else if (route === 'search') {
-      const segments = splitted.filter((segment) => !!segment)
-
-      createPage({
-        path,
-        component: resolve(__dirname, './src/templates/search.tsx'),
-        context: {
-          query: segments.join('/'),
-          map: new Array(segments.length).fill('c').join(','),
-          selectedFacets: segments.map((segment) => ({
-            key: 'c',
-            value: segment,
-          })),
-          staticPath: true,
-        },
-      })
-    }
   })
 
   /**
@@ -99,15 +80,6 @@ export const createPages = async (
     path: '/__client-side-product__/p',
     matchPath: '/:slug/p',
     component: resolve(__dirname, './src/templates/product.tsx'),
-    context: {
-      staticPath: false,
-    },
-  })
-
-  createPage({
-    path: '/__client-side-search__',
-    matchPath: '/*',
-    component: resolve(__dirname, './src/templates/search.tsx'),
     context: {
       staticPath: false,
     },

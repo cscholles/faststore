@@ -9,6 +9,7 @@ import SuspenseSSR from '../components/Suspense/SSR'
 import InStoreTopbar from '../components/InStoreTopbar'
 import { Identification } from '../components/Identification'
 import App from '../components/App'
+import { useSearch } from '../sdk/search/useSearch'
 
 const belowTheFoldPreloader = () =>
   import('../components/HomePage/BelowTheFold')
