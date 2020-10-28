@@ -8,7 +8,7 @@ interface Props {
 }
 
 // eslint-disable-next-line react/prefer-stateless-function
-class CPFInput extends React.Component<Props> {
+export class CPFInput extends React.Component<Props> {
   public validate = (v: string): boolean => {
     return v.length === 11 ? isValidCPF(v) : true
   }

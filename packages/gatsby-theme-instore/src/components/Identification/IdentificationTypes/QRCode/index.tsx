@@ -12,7 +12,7 @@ interface Props {
   visible?: boolean
 }
 
-class QRCodeComponent extends React.Component<Props> {
+export class QRCodeComponent extends React.Component<Props> {
   public static defaultProps = {
     visible: true,
   }

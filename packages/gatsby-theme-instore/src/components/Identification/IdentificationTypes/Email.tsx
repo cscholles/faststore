@@ -10,7 +10,7 @@ interface Props {
   data: InstoreProfileData
 }
 
-class EmailInput extends React.Component<Props> {
+export class EmailInput extends React.Component<Props> {
   public clearEmail(email: string): string {
     return clearIfInStoreAnonymousEmail(email)
   }
