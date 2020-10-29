@@ -4,6 +4,7 @@ import { ensureDir, outputFile } from 'fs-extra'
 import { CreatePagesArgs, CreateWebpackConfigArgs } from 'gatsby'
 
 import { Environment, Options } from './gatsby-config'
+import InstoreConfig from '../instore.config'
 
 const root = process.cwd()
 
@@ -71,12 +72,22 @@ export const createPages = async (
     }
   })
 
-  createPage({
-    path: '/tkovs',
-    component: resolve(__dirname, './src/components/InStoreTopbar/index.tsx'),
-    context: {
-      staticPath: true
-    }
+  const { pages } = InstoreConfig
+
+  pages.forEach((page) => {
+    const { route } = page
+    console.log(`--- `, { page })
+    createPage({
+      path: route,
+      component: resolve(
+        __dirname,
+        './src/components/tkovs/DynamicPage.component.tsx'
+      ),
+      context: {
+        config: page,
+        staticPath: false,
+      },
+    })
   })
 
   /**
