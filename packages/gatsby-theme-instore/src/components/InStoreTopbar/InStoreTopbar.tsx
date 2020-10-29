@@ -2,6 +2,7 @@ import React, { FC } from 'react'
 
 import TitleContainer from './Content/TitleContainer'
 import SearchInputContainer from './Content/SearchInputContainer'
+import DynamicPage from '../tkovs/DynamicPage.container'
 
 const InStoreTopbar: FC = () => (
   <div>
@@ -11,7 +12,8 @@ const InStoreTopbar: FC = () => (
           <div className="flex flex-auto items-center">
             <div className="relative flex flex-auto items-center h-100 w-100">
               <div className="f4 flex flex-grow-1 flex-shrink-1 noselectpl5">
-                <TitleContainer value={2} />
+                <TitleContainer value={3} />
+                <DynamicPage />
               </div>
               <div className="w-40-l flex flex-auto flex-none-l mr5 title-logo">
                 <SearchInputContainer />
