@@ -71,6 +71,14 @@ export const createPages = async (
     }
   })
 
+  createPage({
+    path: '/tkovs',
+    component: resolve(__dirname, './src/components/InStoreTopbar/index.tsx'),
+    context: {
+      staticPath: true
+    }
+  })
+
   /**
    * CLIENT ONLY PATHS
    */
