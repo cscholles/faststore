@@ -4,6 +4,7 @@ const root = process.cwd()
 
 module.exports = ({ locales, defaultLocale }: Options) => ({
   plugins: [
+    'gatsby-plugin-postcss',
     {
       resolve: require.resolve('gatsby-plugin-bundle-stats'),
       options: {
@@ -20,9 +21,9 @@ module.exports = ({ locales, defaultLocale }: Options) => ({
     {
       resolve: require.resolve('gatsby-plugin-react-helmet-async'),
     },
-    {
-      resolve: require.resolve('@vtex/gatsby-plugin-theme-ui'),
-    },
+    // {
+    //   resolve: require.resolve('@vtex/gatsby-plugin-theme-ui'),
+    // },
     {
       // Makes it possible to share graphql queries between
       // client/server side queries

@@ -6,6 +6,7 @@ import React, { StrictMode } from 'react'
 import ReactDOM from 'react-dom'
 import type { WrapRootElementBrowserArgs } from 'gatsby'
 import type { ElementType } from 'react'
+import './src/styles/global.css'
 
 // Webpack + TS magic to make this work
 const { OrderFormProvider } = require('./src/sdk/orderForm/Provider')
@@ -15,11 +16,6 @@ const { default: ErrorHandler } = require('./src/components/Error/ErrorHandler')
 const {
   default: ErrorBoundary,
 } = require('./src/components/Error/ErrorBoundary')
-// eslint-disable-next-line padding-line-between-statements
-const {
-  Progress,
-  onRouteUpdate: progressOnRouteUpdate,
-} = require('./src/sdk/progress')
 
 export const replaceHydrateFunction = () => async (
   element: ElementType,
@@ -61,15 +57,8 @@ export const wrapRootElement = ({ element }: WrapRootElementBrowserArgs) => {
   return root
 }
 
-export const wrapPageElement = ({
-  element,
-  props: { location },
-}: WrapRootElementBrowserArgs | any) => (
+export const wrapPageElement = ({ element }: WrapRootElementBrowserArgs) => (
   <ErrorBoundary fallback={(error: any) => <ErrorHandler error={error} />}>
-    <Progress location={location}>{element}</Progress>
+    {element}
   </ErrorBoundary>
 )
-
-export const onRouteUpdate = () => {
-  progressOnRouteUpdate()
-}

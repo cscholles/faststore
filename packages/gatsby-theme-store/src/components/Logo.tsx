@@ -1,11 +1,23 @@
-import { Logo } from '@vtex/store-ui'
 import React from 'react'
-import type { FC } from 'react'
 
-const CustomLogo: FC<{ variant?: string }> = ({ variant }) => (
-  <Logo
-    variant={variant}
-    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAApQAAAAsCAMAAADsF9g/AAAABGdBTUEAALGPC/xhBQAAACBjSFJN
+const CustomLogo = () => (
+  <svg
+    version="1.1"
+    id="Layer_1"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlnsXlink="http://www.w3.org/1999/xlink"
+    x="0px"
+    y="0px"
+    height="12px"
+    viewBox="0 0 660 44"
+    xmlSpace="preserve"
+  >
+    <title>Store Theme Logo</title>
+    <image
+      id="image0"
+      x="0"
+      y="0"
+      href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAApQAAAAsCAMAAADsF9g/AAAABGdBTUEAALGPC/xhBQAAACBjSFJN
   AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAZlBMVEUAAAA4OEA8PEA9PUA9
   PUA6OkA9PUA+PkA+PkA/P0A/P0A/P0BAQEA/P0BAQEA/P0BAQEBAQEBAQEA/P0A+PkA6OkI+PkBA
   QEBAQEA+PkA+PkBAQEA+PkBAQEBAQEA+PkA/P0D///+GXwQpAAAAIHRSTlMAIEBgUDBwgI/P77+Q
@@ -49,7 +61,8 @@ const CustomLogo: FC<{ variant?: string }> = ({ variant }) => (
   CYHdaQXKf5a4dkYossp7AAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDIwLTA2LTIzVDEzOjMzOjUxKzAw
   OjAw0DMcvgAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMC0wNi0yM1QxMzozMzo1MSswMDowMKFupAIA
   AAAASUVORK5CYII="
-  />
+    />
+  </svg>
 )
 
 export default CustomLogo
