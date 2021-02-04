@@ -133,7 +133,7 @@ interface ShippingMethod {
   selectedSla: string
 }
 
-export interface ProductOrder {
+interface ProductOrder {
   id: string
   name: string
   sku: string
